@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_data_siswa,access_data_siswa,model_data_siswa,base.group_user,1,1,1,1
+access_data_guru,access_data_guru,model_data_guru,base.group_user,1,1,1,1
+access_data_kelas,access_data_kelas,model_data_kelas,base.group_user,1,1,1,1
+access_mata_pelajaran,access_mata_pelajaran,model_mata_pelajaran,base.group_user,1,1,1,1
+access_bidang_studi,access_bidang_studi,model_bidang_studi,base.group_user,1,1,1,1
+access_ruang_kelas,access_ruang_kelas,model_ruang_kelas,base.group_user,1,1,1,1
+access_anggota_kelas,access_anggota_kelas,model_anggota_kelas,base.group_user,1,1,1,1
+access_jadwal_pelajaran,access_jadwal_pelajaran,model_jadwal_pelajaran,base.group_user,1,1,1,1

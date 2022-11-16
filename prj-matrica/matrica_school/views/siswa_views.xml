@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="data_siswa_tree_view" model="ir.ui.view">
+        <field name="name">data.siswa.tree.view</field>
+        <field name="model">data.siswa</field>
+        <field name="field_parent">child_ids</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nis" />
+                <field name="nama_siswa" />
+                <field name="jenis_kelamin" />
+                <field name="tempat_lahir" />
+                <field name="tanggal_lahir" />
+                <field name="agama" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="data_siswa_action" model="ir.actions.act_window">
+        <field name="name">Data Siswa</field>
+        <field name="res_model">data.siswa</field>
+        <field name="view_id" ref="data_siswa_tree_view" />
+        <field name="help" type="html">
+            <p>Data Siswa</p>
+        </field>
+    </record>
+
+    <record id="data_siswa_form_view" model="ir.ui.view">
+        <field name="name">data.siswa.form.view</field>
+        <field name="model">data.siswa</field>
+        <field name="arch" type="xml">
+            <form string="Data Siswa">
+                <sheet>
+                    <field name="foto_siswa" widget="image" class="oe_avatar" />
+                    <div class="oe_title">
+                        <label for="nama_siswa" string="Nama Siswa" />
+                        <h1>
+                            <field class="o_text_overflow" name="nama_siswa" placeholder="e.g. Santomi Fitrada" />
+                        </h1>
+                        <div name="options_archive" />
+                    </div>
+                    
+                    <group>
+                        <group name="left">
+                            <field name="nis" />
+                            <field name="jenis_kelamin" />
+                            <field name="tempat_lahir" />
+                            <field name="tanggal_lahir" />
+                            <field name="agama" />
+                            <field name="alamat" />
+                            <field name="no_telp" />
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <menuitem
+            id="school_menu_siswa"
+            name="Siswa"
+            parent="school_menu_root"
+            action="matrica_school.data_siswa_action"
+            sequence="2"
+            groups="base.group_system"
+            />
+</odoo>

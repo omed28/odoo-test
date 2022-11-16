@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="segmen_product_tree_view" model="ir.ui.view">
+        <field name="name">segmen.product.tree.view</field>
+        <field name="model">segmen.product</field>
+        <field name="field_parent">child_ids</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="segmen_product_action" model="ir.actions.act_window">
+        <field name="name">Segmen Product</field>
+        <field name="res_model">segmen.product</field>
+        <field name="view_id" ref="segmen_product_tree_view" />
+        <field name="help" type="html">
+            <p>Segmen Product</p>
+        </field>
+    </record>
+
+    <menuitem id="crm_config_segmen_product"
+            name="Segmen Product"
+            parent="crm.crm_menu_config"
+            action="matrica_crm.segmen_product_action"
+            sequence="3"/>
+
+</odoo>

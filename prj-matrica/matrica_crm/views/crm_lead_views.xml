@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="custom_inherit_crm_lead_view_form" model="ir.ui.view">
+        <field name="name">custom.inherit.crm.lead.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <group name="new_customer">
+                    <field name="new_customer" string="New Customer ?"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="segmen_customer" string="Segmen Customer"/> 
+                <field name="segmen_product_id" string="Segmen Product"/>      
+            </xpath>
+
+            <xpath expr="//page[@name='lead']" position="after">
+                <page name="task" string="Task Progress">
+                    <field name="task_progress_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                            <field name="deadline"/>
+                            <field name="note"/>
+                            <field name="progress"/>
+                        </tree>
+                        <form>
+                            <sheet>
+                                <group>
+                                    <field name="name"/>
+                                    <field name="deadline"/>
+                                    <field name="note"/>
+                                    <field name="progress"/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

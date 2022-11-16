@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ruang_kelas_tree_view" model="ir.ui.view">
+        <field name="name">ruang.kelas.tree.view</field>
+        <field name="model">ruang.kelas</field>
+        <field name="field_parent">child_ids</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="nama_ruangan" required="1"/>
+                <field name="kapasitas" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ruang_kelas_action" model="ir.actions.act_window">
+        <field name="name">Ruang Kelas</field>
+        <field name="res_model">ruang.kelas</field>
+        <field name="view_id" ref="ruang_kelas_tree_view" />
+        <field name="help" type="html">
+            <p>Ruang Kelas</p>
+        </field>
+    </record>
+
+    <menuitem
+            id="school_menu_config_ruangan"
+            name="Ruang Kelas"
+            parent="school_menu_config"
+            action="matrica_school.ruang_kelas_action"
+            sequence="1"
+            groups="base.group_system"/>
+
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bidang_studi_tree_view" model="ir.ui.view">
+        <field name="name">bidang.studi.tree.view</field>
+        <field name="model">bidang.studi</field>
+        <field name="field_parent">child_ids</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="nama_jurusan" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="bidang_studi_action" model="ir.actions.act_window">
+        <field name="name">Jurusan</field>
+        <field name="res_model">bidang.studi</field>
+        <field name="view_id" ref="bidang_studi_tree_view" />
+        <field name="help" type="html">
+            <p>Jurusan</p>
+        </field>
+    </record>
+
+    <menuitem
+            id="school_menu_config_jurusan"
+            name="Jurusan / Bidang Studi"
+            parent="school_menu_config"
+            action="matrica_school.bidang_studi_action"
+            sequence="2"
+            groups="base.group_system"/>
+
+</odoo>

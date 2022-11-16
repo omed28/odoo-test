@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mata_pelajaran_tree_view" model="ir.ui.view">
+        <field name="name">mata.pelajaran.tree.view</field>
+        <field name="model">mata.pelajaran</field>
+        <field name="field_parent">child_ids</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="nama_pelajaran" required="1"/>
+                <field name="bidang_studi_id" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mata_pelajaran_action" model="ir.actions.act_window">
+        <field name="name">Mata Pelajaran</field>
+        <field name="res_model">mata.pelajaran</field>
+        <field name="view_id" ref="mata_pelajaran_tree_view" />
+        <field name="help" type="html">
+            <p>Mata Pelajaran</p>
+        </field>
+    </record>
+
+    <menuitem
+            id="school_menu_mapel"
+            name="Mata Pelajaran"
+            parent="school_menu_root"
+            action="matrica_school.mata_pelajaran_action"
+            sequence="4"
+            groups="base.group_system"
+            />
+
+</odoo>

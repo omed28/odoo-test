@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="data_guru_tree_view" model="ir.ui.view">
+        <field name="name">data.guru.tree.view</field>
+        <field name="model">data.guru</field>
+        <field name="field_parent">child_ids</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nip" />
+                <field name="nama_guru" />
+                <field name="tempat_lahir" />
+                <field name="tanggal_lahir" />
+                <field name="jenis_kelamin" />
+                <field name="agama" />
+                <field name="no_telp" />
+                <field name="mata_pelajaran_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="data_guru_action" model="ir.actions.act_window">
+        <field name="name">Data Guru</field>
+        <field name="res_model">data.guru</field>
+        <field name="view_id" ref="data_guru_tree_view" />
+        <field name="help" type="html">
+            <p>Data Guru</p>
+        </field>
+    </record>
+
+    <record id="data_guru_form_view" model="ir.ui.view">
+        <field name="name">data.guru.form.view</field>
+        <field name="model">data.guru</field>
+        <field name="arch" type="xml">
+            <form string="Data Guru">
+                <sheet>
+                    <field name="foto_guru" widget="image" class="oe_avatar" />
+                    <div class="oe_title">
+                        <label for="nama_guru" string="Nama Guru" />
+                        <h1>
+                            <field class="o_text_overflow" name="nama_guru" placeholder="e.g. Santomi Fitrada" />
+                        </h1>
+                        <div name="options_archive" />
+                    </div>
+                    
+                    <group>
+                        <group name="left">
+                            <field name="nip" />
+                            <field name="jenis_kelamin" />
+                            <field name="tempat_lahir" />
+                            <field name="tanggal_lahir" />
+                            <field name="agama" />
+                            <field name="alamat" />
+                            <field name="no_telp" />
+                            <field name="mata_pelajaran_id" />
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <menuitem
+            id="school_menu_guru"
+            name="Guru"
+            parent="school_menu_root"
+            action="matrica_school.data_guru_action"
+            sequence="3"
+            groups="base.group_system"/>
+
+</odoo>
