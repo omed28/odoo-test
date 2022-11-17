@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>    
+    
+    <record id="view_booking_order_form" model="ir.ui.view">
+        <field name="name">booking.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_confirm']" position="after">
+                <button name="action_check_team" string="Check Service Team" type="object" states="draft,sent" class="btn-primary" data-hotkey="g"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="before">
+                <field name="is_booking_order" context="{'default_is_booking_order': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                <field name="service_team_id"/>
+                <field name="team_leader"/>
+                <field name="team_members" widget="many2many_tags"/>
+            </xpath>
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="booking_start"/>
+                <field name="booking_end"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

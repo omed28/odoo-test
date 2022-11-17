@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="work_order_report" 
+            model="work.order" 
+            string="Work Order Report PDF" 
+            report_type="qweb-pdf" 
+            file="booking_order_santomifitrada_111122.work_order_report" 
+            name="booking_order_santomifitrada_111122.work_order_report"
+            menu="False"
+            />
+
+        <template id="work_order_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <div class="header" style="padding-top:50px;">
+                        <table style="border: 1px solid black; width: 100%;">
+                            <tr>
+                                <td colspan="4" style="border: 1px solid black;padding-top:15px;padding-bottom:15px;padding-left:10px;text-align: left;">
+                                    <h5>Work Order Report</h5>
+                                    <span t-field="o.wo_number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black;padding-top:15px;padding-bottom:15px;padding-left:10px;text-align: left;">
+                                    <strong>Team Name</strong>
+                                </td>
+                                <td style="border: 1px solid black;padding-top:15px;padding-bottom:15px;padding-left:10px;text-align: left;">
+                                    <span t-field="o.team_id"/>
+                                </td>
+                                <td style="border: 1px solid black;padding-top:15px;padding-bottom:15px;padding-left:10px;text-align: left;">
+                                    <strong>Customer</strong>
+                                </td>
+                                <td style="border: 1px solid black;padding-top:15px;padding-bottom:15px;padding-left:10px;text-align: left;">
+                                    <span t-field="o.booking_reference.partner_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid black;padding-top:15px;padding-bottom:15px;padding-left:10px;text-align: left;">
+                                    <strong>Booing Reference</strong>
+                                </td>
+                                <td style="border: 1px solid black;padding-top:15px;padding-bottom:15px;padding-left:10px;text-align: left;">
+                                    <span t-field="o.booking_reference"/>
+                                </td>
+                                <td style="border: 1px solid black;padding-top:15px;padding-bottom:15px;padding-left:10px;text-align: left;">
+                                    <strong>Date</strong>
+                                </td>
+                                <td style="border: 1px solid black;padding-top:15px;padding-bottom:15px;padding-left:10px;text-align: left;">
+                                    <span t-field="o.planned_start"/> - <span t-field="o.planned_end"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="border: 1px solid black;padding-top:15px;padding-bottom:15px;padding-left:10px;text-align: left;">
+                                    <h5>Notes :</h5>
+                                    <span t-field="o.note"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="4" style="border: 1px solid black;padding-top:15px;padding-bottom:15px;padding-left:10px;text-align: left;">
+                                    <h5>Signature</h5>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>     
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

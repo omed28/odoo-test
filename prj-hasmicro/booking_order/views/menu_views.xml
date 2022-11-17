@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <menuitem
+            id="service_team_menu"
+            name="Service Team"
+            parent="sale.sale_menu_root"
+            action="booking_order_santomifitrada_111122.service_team_action"
+            sequence="2" groups="sales_team.group_sale_salesman"
+            />
+
+        <menuitem 
+            id="booking_order_menu"
+            name="Booking Orders"
+            parent="sale.sale_menu_root"
+            action="booking_order_santomifitrada_111122.action_booking"
+            sequence="2" groups="sales_team.group_sale_salesman"/>
+
+        <menuitem 
+            id="work_order_menu"
+            name="Working Orders"
+            parent="sale.sale_menu_root"
+            action="booking_order_santomifitrada_111122.work_order_action"
+            sequence="3" groups="sales_team.group_sale_salesman"/>
+
+</odoo>

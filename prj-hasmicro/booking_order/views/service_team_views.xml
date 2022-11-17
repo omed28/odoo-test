@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="service_team_tree_view" model="ir.ui.view">
+        <field name="name">service.team.tree.view</field>
+        <field name="model">service.team</field>
+        <field name="field_parent">child_ids</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="team_name" />
+                <field name="team_leader" />
+                <field name="team_members" widget="many2many_tags" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="service_team_action" model="ir.actions.act_window">
+        <field name="name">Service Team</field>
+        <field name="res_model">service.team</field>
+        <field name="view_id" ref="service_team_tree_view" />
+        <field name="help" type="html">
+            <p>Service Team</p>
+        </field>
+    </record>
+
+    <record id="service_team_form_view" model="ir.ui.view">
+        <field name="name">service.team.form.view</field>
+        <field name="model">service.team</field>
+        <field name="arch" type="xml">
+            <form string="Service Team">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="team_name" string="Team Name" />
+                        <h1>
+                            <field class="o_text_overflow" name="team_name" placeholder="e.g. Team Prabu" />
+                        </h1>
+                        <div name="options_archive" />
+                    </div>
+                    
+                    <group>
+                        <group name="left">
+                            <field name="team_leader" />
+                            <field name="team_members" widget="many2many_tags" />
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- <menuitem
+        id="service_team_menu"
+        name="Service Team"
+        parent="sale_menu_root"
+        action="booking_order_santomifitrada_111122.service_team_action"
+        sequence="2"
+        groups="sales_team.group_sale_salesman"
+        /> -->
+    
+</odoo>
